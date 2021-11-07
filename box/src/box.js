@@ -25,5 +25,6 @@ Box.prototype.createMrMeeseeks = function() {
   return Object.create(this.mrMeeseeks)
 };
 
+Box.prototype.getProtoMeeseks =  function() {return this.mrMeeseeks;}
 
 exports.singletonBox = factory;

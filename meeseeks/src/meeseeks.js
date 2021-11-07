@@ -1,30 +1,34 @@
-
-
-function MrMeeseeks (id, messageOnRequest, messageOnDone, messageOnExplode, request, requestAsList){
-    this.id = Date.now();
-    this.messageOnCreate = "I'm Mr Meeseeks! Look at meeee!";
-    this.messageOnRequest = messageOnRequest;
-    this.messageOnDone = messageOnDone;
-    this.messageOnExplode = messageOnExplode;
-    this.request = request;
-    this.requestAsList = requestAsList;
-
+function MrMeeseeks(messageOnDone, messageOnExplode, request, requestAsList) {
+  this.id = Date.now();
+  this.messageOnCreate = "I'm Mr Meeseeks! Look at meeee!";
+  this.messageOnRequest = [
+    "Oooh yeah! Can do!",
+    "Yes sireee!",
+    "Oh, yeah!, Yes, ma'am!",
+  ];
+  this.messageOnDone = messageOnDone;
+  this.messageOnExplode = messageOnExplode;
+  this.request = request;
+  this.requestAsList = requestAsList;
 }
 
-
 var factory = (() => {
+  const prototype = new MrMeeseeks();
 
-    const prototype = new MrMeeseeks();
-
-    return {
-        get: function () {
-            return prototype;
-        }
-    };
+  return {
+    get: function () {
+      return prototype;
+    },
+  };
 })();
 
-MrMeeseeks.prototype.messageOnCreate= (()=>{
-    return MrMeeseeks.messageOnCreate;
-});
+MrMeeseeks.prototype.messageOnCreate = () => {
+  return MrMeeseeks.messageOnCreate;
+};
+
+MrMeeseeks.prototype.speakOnRequest = function() {
+  return this.messageOnRequest[Math.floor(Math.random() * this.messageOnRequest.length)]
+};
+
 
 exports.meeseks = factory;

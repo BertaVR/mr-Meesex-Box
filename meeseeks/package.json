@@ -1,0 +1,24 @@
+{
+  "name": "meeseeks",
+  "version": "1.0.0",
+  "description": "this is the meeseks module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BertaVR/mr-Meesex-Box.git"
+  },
+  "keywords": [
+    "proxy",
+    "classes",
+    "meeseks"
+  ],
+  "author": "Berta Vergés",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BertaVR/mr-Meesex-Box/issues"
+  },
+  "homepage": "https://github.com/BertaVR/mr-Meesex-Box#readme"
+}

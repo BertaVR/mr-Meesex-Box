@@ -1,0 +1,19 @@
+{
+  "name": "box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "JEST"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BertaVR/mr-Meesex-Box.git"
+  },
+  "author": "Berta Vergés",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BertaVR/mr-Meesex-Box/issues"
+  },
+  "homepage": "https://github.com/BertaVR/mr-Meesex-Box#readme"
+}

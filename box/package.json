@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/box.js",
   "scripts": {
+    "start": "node ../main.js",
     "test": "JEST"
   },
   "repository": {

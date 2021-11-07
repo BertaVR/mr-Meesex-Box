@@ -2,8 +2,9 @@
   "name": "meeseeks",
   "version": "1.0.0",
   "description": "this is the meeseks module",
-  "main": "index.js",
+  "main": "./src/meeseeks.js",
   "scripts": {
+    "start": "node ../main.js",
     "test": "jest"
   },
   "repository": {
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/BertaVR/mr-Meesex-Box/issues"
   },
-  "homepage": "https://github.com/BertaVR/mr-Meesex-Box#readme"
+  "homepage": "https://github.com/BertaVR/mr-Meesex-Box#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
 }

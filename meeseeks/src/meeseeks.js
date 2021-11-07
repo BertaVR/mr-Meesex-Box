@@ -1,5 +1,8 @@
-function Meeseeks (id, messageOnRequest, messageOnDone, messageOnExplode, request, requestAsList){
-    this.id = id;
+
+
+function MrMeeseeks (id, messageOnRequest, messageOnDone, messageOnExplode, request, requestAsList){
+    this.id = Date.now();
+    this.messageOnCreate = "I'm Mr Meeseeks! Look at meeee!";
     this.messageOnRequest = messageOnRequest;
     this.messageOnDone = messageOnDone;
     this.messageOnExplode = messageOnExplode;
@@ -7,8 +10,9 @@ function Meeseeks (id, messageOnRequest, messageOnDone, messageOnExplode, reques
     this.requestAsList = requestAsList;
 
 }
-  
-export var factory = (() => {
+
+
+var factory = (() => {
 
     const prototype = new MrMeeseeks();
 
@@ -18,3 +22,9 @@ export var factory = (() => {
         }
     };
 })();
+
+MrMeeseeks.prototype.messageOnCreate= (()=>{
+    return MrMeeseeks.messageOnCreate;
+});
+
+exports.meeseks = factory;

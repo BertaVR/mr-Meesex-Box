@@ -22,13 +22,14 @@ var factory = (() => {
   };
 })();
 
-MrMeeseeks.prototype.messageOnCreate = () => {
+MrMeeseeks.prototype.speakOnCreate = () => {
   return MrMeeseeks.messageOnCreate;
 };
 
 MrMeeseeks.prototype.speakOnRequest = function() {
   return this.messageOnRequest[Math.floor(Math.random() * this.messageOnRequest.length)]
 };
+
 
 
 exports.meeseks = factory;

@@ -4,7 +4,7 @@ function Box (){
 }
 
   
-export var factory = (() => {
+var factory = (() => {
 
   const prototype = new Box();
 
@@ -14,3 +14,5 @@ export var factory = (() => {
       }
   };
 })();
+
+exports.singletonBox = factory;

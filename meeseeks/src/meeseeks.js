@@ -23,9 +23,9 @@ MrMeeseeks.prototype.speakOnCreate = () => {
 };
 
 MrMeeseeks.prototype.speakOnRequest = function() {
-  return this.messageOnRequest[Math.floor(Math.random() * this.messageOnRequest.length)]
+  console.log(randomMessageOnRequest())
 };
 
-
+function randomMessageOnRequest() { return this.messageOnRequest[Math.floor(Math.random() * this.messageOnRequest.length)]}
 
 exports.meeseks = factory;

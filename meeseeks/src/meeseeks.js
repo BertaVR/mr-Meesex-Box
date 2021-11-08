@@ -1,15 +1,11 @@
-function MrMeeseeks(messageOnDone, messageOnExplode, request, requestAsList) {
-  this.id = Date.now();
+function MrMeeseeks() {
   this.messageOnCreate = "I'm Mr Meeseeks! Look at meeee!";
   this.messageOnRequest = [
     "Oooh yeah! Can do!",
     "Yes sireee!",
     "Oh, yeah!, Yes, ma'am!",
   ];
-  this.messageOnDone = messageOnDone;
-  this.messageOnExplode = messageOnExplode;
-  this.request = request;
-  this.requestAsList = requestAsList;
+
 }
 
 var factory = (() => {
@@ -23,7 +19,7 @@ var factory = (() => {
 })();
 
 MrMeeseeks.prototype.speakOnCreate = () => {
-  return MrMeeseeks.messageOnCreate;
+  console.log(this.messageOnCreate);
 };
 
 MrMeeseeks.prototype.speakOnRequest = function() {

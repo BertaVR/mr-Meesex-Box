@@ -10,7 +10,7 @@
 // require del directorio que la contiene 
 var importaBox = require('./box');
 
-// creamos dos cajas: es la misma por singleton
+// create two boxes: it's the same one - singleton
 var factoriaBox = importaBox.singletonBox;
 var box = factoriaBox.getBox();
 console.log(box.name);
@@ -18,15 +18,14 @@ console.log(box.name);
 var box2 = factoriaBox.getBox();
 console.log(box2.name);
 
-//  las cajas son la misma
+//  are boxes the same? assertion:
 console.assert(box === box2);
 box2.name = "Jen's box";
 console.log(box.name);
 
 
-// creamos dos Meeseeks
-// los Meeseeks son distintos
-// el prototipo no cambia
+// create two Meeseeks (copies): they are expected to be different 
+// protomeeseeks should not change
 var mrMeeseeks = box.createMrMeeseeks();
 
 var mrMeeseeks2 = box.createMrMeeseeks();
@@ -35,32 +34,29 @@ mrMeeseeks2.messageOnCreate = "Caaaan dooooo!!";
 console.assert(mrMeeseeks !== mrMeeseeks2);
 console.assert(mrMeeseeks.messageOnCreate != mrMeeseeks2.messageOnCreate);
 
-// obtengo el meeseeks proto y compruebo que su mensaje
-// onCreate no ha cambiado: shadowing de la variable messageOnCreate
+
+// assert that message on create DOES NOT change for the protomeeseeks
 var proto = box.getProtoMeeseks();
 console.assert(proto.messageOnCreate == "I'm Mr Meeseeks! Look at meeee!");
 console.assert(proto != mrMeeseeks);
 
-// creamos Mr Meeseeks con la caja
-// Los meeseeks se añaden a un array 
-// para practicar este tipo de estructura
+
+// Meeseeks are added to reality
 var reality = [];
 
-// Historia de usuario: Jerry press button
 console.log("\n ### Jerry press button ### \n");
 
 box.pressButton(reality);
-console.assert(reality.length == 1);
+console.assert(reality.length == 1); // a meeseeks should be pushed to reality
 
 console.log("Rick: Open Jerry's stupid mayonnaise jar");
-var lastMrMeeseeks = reality.length - 1;
+var lastMrMeeseeks = reality.length - 1; 
 reality[lastMrMeeseeks].makeRequest("open", "Jerry's stupid mayonnaise jar");
 reality[lastMrMeeseeks].fulfillRequest();
-// meeseeks deja de existir
+// meeseeks disappears from existance (reality) when the request is fulfilled
 reality.pop();
 console.assert(reality.length == 0);
 
-// Historia de usuario: Summer press button
 console.log("\n ### Summer press button ### \n");
 
 box.pressButton(reality);
@@ -71,7 +67,6 @@ reality[lastMrMeeseeks].fulfillRequest();
 reality.pop();
 console.assert(reality.length == 0);
 
-// // Historia de usuario: Beth press button
 console.log("\n ### Beth press button ### \n");
 
 box.pressButton(reality);
@@ -81,11 +76,10 @@ reality[lastMrMeeseeks].fulfillRequest();
 reality.pop();
 console.assert(reality.length == 0);
 
-// el prototipo no se ha visto alterado con accion
-// proto.fulfillRequest();  => accion no definido
+// prototype not affected by
+// proto.fulfillRequest();  =>  action not defined
 
 
-// // Historia de usuario: Jerry y su Mr Meeseeks press button
 console.log("\n ### Jerry and Mr Meeseeks press button ### \n");
 
 box.pressButton(reality);
@@ -95,20 +89,19 @@ console.log("Jerry: I would like to take two strokes off my golf game.");
 
 reality[lastMrMeeseeks].makeRequest("take two strokes off", "my golf game");
 
-// si cambiamos el "mensaje al crearse" del prototipo, 
-// cambia el de todos los meeseeks
+// if we change message on create from protomeeseeks, 
+// all messages from meeseeks will change
 // proto.messageOnCreate = "Caaaaaan dooooooo!!";
 Object.getPrototypeOf(reality[lastMrMeeseeks]).messageOnCreate = "Hi!!";
 
-// Mr Meeseeks creando meeseeks
+// Mr Meeseeks creating meeseeks (this happens in the episode!)
 
 let meeseeksNum = 3;
-// el hoisting de funciones funciona con la declaracion de funciones
+// hoisting of functions works with its declaration
 createBunchOfMeeseeks(meeseeksNum, reality, box);
 
 console.assert(reality.length == meeseeksNum + 1);
 
-// aprendiendo draw
 
 // Array-Like Objects
 var olla = {};
@@ -120,23 +113,21 @@ Object.getPrototypeOf(reality[0]).learnRequest(
                 return "tomato" in objeto ? 
                     "That's a lower handycap stroke!!" : "I wanna die!!!";
             }
-            // la ejecucion de la accion se aplaza hasta que sea invocada
+            // execution of function will happen when it is invoked! not before
             return execute;
         },        
         olla);
 
-// Todos los meeseeks menos uno dejan de existir
-// selecciono todos los elementos del array menos el primero
-// slice(start, end) => slice(0, -1) => desde el primero hasta el ultimo sin incluir
+// All meeseeks disappear from reality except for one -> the first in array
+// slice(start, end) => slice(0, -1) => from first to last not inclusive
 let nuMmeseeksToExplode = reality.slice(0,-1).length;
 
-// hoisting de la funcion
+// hoisting 
 explodeMrMeeseeks(nuMmeseeksToExplode, reality);
 
 console.assert(reality.length == 1);
 
 
-// aprendiendo short game
 console.log("\nMr Meeseeks with a knife: What about your short game?");
 
 // Array-Like Objects
@@ -158,35 +149,22 @@ explodeMrMeeseeks(1, reality);
 console.assert(reality.length == 0);
 
 
-/**
- * crear un buen hatajo de meeseeks
- */ 
 
- // el hoisting de funciones funciona con la declaracion de funciones
+
+// hoisting of functions works with its declaration
 function createBunchOfMeeseeks(numMeeseeks, existence, rickBox) {
     for(let i = 1; i <= numMeeseeks; i++) {
         rickBox.pressButton(existence);
         console.log("Mr Meeseeks: Could you help me get two strokes off Jerry's golf swim?");
 
-        // si añadimos accion() con makeRequest, la creamos de manera local en el objeto
-        // asi que aunque añadamos accion() mediante learnRequest en el prototipo
-        // JS encontrara accion() de make en el espacio de nombres local
-        // y no la accion() creada en el prototipo (precedencia resolucion nombres)
-
-        // reality[i].makeRequest("take two strokes off", "my golf game");
     }
 }
 
 
-/**
- * Explotar meeseeks a puñaos
- */
 
 function explodeMrMeeseeks(numMeseeksToBlowOut, existence) {
     for(let i = 0; i < numMeseeksToBlowOut; i++) {
-        // el primer meeseeks creado por jerry es el que primero explota
-        // for/in no devuelve el array en el orden en el que fue creado
-        // for/in necesitaria chequear si la propiedad es hasOwnProperty de reality
+
         existence.shift().fulfillRequest();
     }    
 }

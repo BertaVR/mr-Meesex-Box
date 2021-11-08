@@ -5,7 +5,6 @@ function MrMeeseeks() {
     "Yes sireee!",
     "Oh, yeah!, Yes, ma'am!",
   ];
-
 }
 
 var factory = (() => {
@@ -22,10 +21,14 @@ MrMeeseeks.prototype.speakOnCreate = () => {
   console.log(this.messageOnCreate);
 };
 
-MrMeeseeks.prototype.speakOnRequest = function() {
-  console.log(randomMessageOnRequest())
+MrMeeseeks.prototype.speakOnRequest = function () {
+  console.log(randomMessageOnRequest());
 };
 
-function randomMessageOnRequest() { return this.messageOnRequest[Math.floor(Math.random() * this.messageOnRequest.length)]}
+function randomMessageOnRequest() {
+  return this.messageOnRequest[
+    Math.floor(Math.random() * this.messageOnRequest.length)
+  ];
+}
 
-exports.meeseks = factory;
+exports.singleMrMeeseeks = factory;

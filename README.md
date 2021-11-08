@@ -6,7 +6,6 @@ The aim of this practise is to recreate a Rick an Morty episode in which a clone
 - Use of closures (encapsulation)
 - Prototype inheritance
 - Use of 'this'
-- Encapsulation
 
 
 \* Unit testing to be implemented- I still need to learn how jest works :(

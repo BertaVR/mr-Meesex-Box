@@ -1,11 +1,11 @@
-var importaMeeseeks = require("../../meeseeks");
+var singletonProtoMeeseeks = require("../../meeseeks");
 
 function Box() {
   this.name = "Rick's box";
   this.mrMeeseeks = null;
 }
 
-var factory = (() => {
+var factory = (function singleBox(){
   const prototype = new Box();
 
   return {
@@ -17,9 +17,9 @@ var factory = (() => {
 
 Box.prototype.createMrMeeseeks = function () {
   if (!this.mrMeeseeks) {
-    this.mrMeeseeks = importaMeeseeks.meeseks.get();
+    this.mrMeeseeks = singletonProtoMeeseeks.meeseks.get(); // create an instance of the god of meeseeks module if there is not one (singleton)
   }
-  return Object.create(this.mrMeeseeks);
+  return Object.create(this.mrMeeseeks); // if a proto meeseeks already exists just copy it and return the copy
 };
 
 Box.prototype.getProtoMeeseks = function () {
@@ -29,7 +29,7 @@ Box.prototype.getProtoMeeseks = function () {
 Box.prototype.pressButton = function (reality) {
   let newMeeseeks = this.createMrMeeseeks();
   newMeeseeks.speakOnCreate();
-  reality.push(newMeeseeks);
+  reality.push(newMeeseeks); // when the button is pressed, a meeseeks copy is pushed to reality
 };
 
 exports.singletonBox = factory;

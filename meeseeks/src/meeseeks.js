@@ -17,19 +17,14 @@ var factory = (() => {
   };
 })();
 
-MrMeeseeks.prototype.speakOnCreate = () => {
+MrMeeseeks.prototype.speakOnCreate = function() {
   console.log(this.messageOnCreate);
 };
 
-MrMeeseeks.prototype.speakOnRequest = function () {
-  console.log(randomMessageOnRequest());
-};
+MrMeeseeks.prototype.speakOnRequest = function() {
+  let message = this.messageOnRequest[Math.floor(Math.random() * this.messageOnRequest.length)]
+  console.log(message);}
 
-function randomMessageOnRequest() {
-  return this.messageOnRequest[
-    Math.floor(Math.random() * this.messageOnRequest.length)
-  ];
-}
 // Closure to make request but it will not be brought to action (executed) 
 //  until it's fulfilled (method fulfillRequest)
 MrMeeseeks.prototype.makeRequest = function(desire, object) { 

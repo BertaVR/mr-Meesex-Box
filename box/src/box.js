@@ -17,12 +17,12 @@ var factory = (function singleBox(){
 
 Box.prototype.createMrMeeseeks = function () {
   if (!this.mrMeeseeks) {
-    this.mrMeeseeks = singletonProtoMeeseeks.meeseks.get(); // create an instance of the god of meeseeks module if there is not one (singleton)
+    this.mrMeeseeks = singletonProtoMeeseeks.singleMrMeeseeks.get(); // create an instance of the god of meeseeks module if there is not one (singleton)
   }
   return Object.create(this.mrMeeseeks); // if a proto meeseeks already exists just copy it and return the copy
 };
 
-Box.prototype.getProtoMeeseks = function () {
+Box.prototype.getProtoMeeseeks = function () {
   return this.mrMeeseeks;
 };
 

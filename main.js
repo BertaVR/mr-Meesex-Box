@@ -36,7 +36,7 @@ console.assert(mrMeeseeks.messageOnCreate != mrMeeseeks2.messageOnCreate);
 
 
 // assert that message on create DOES NOT change for the protomeeseeks
-var proto = box.getProtoMeeseks();
+var proto = box.getProtoMeeseeks();
 console.assert(proto.messageOnCreate == "I'm Mr Meeseeks! Look at meeee!");
 console.assert(proto != mrMeeseeks);
 
@@ -120,10 +120,10 @@ Object.getPrototypeOf(reality[0]).learnRequest(
 
 // All meeseeks disappear from reality except for one -> the first in array
 // slice(start, end) => slice(0, -1) => from first to last not inclusive
-let nuMmeseeksToExplode = reality.slice(0,-1).length;
+let nuMmeeseeksToExplode = reality.slice(0,-1).length;
 
 // hoisting 
-explodeMrMeeseeks(nuMmeseeksToExplode, reality);
+explodeMrMeeseeks(nuMmeeseeksToExplode, reality);
 
 console.assert(reality.length == 1);
 
@@ -162,8 +162,8 @@ function createBunchOfMeeseeks(numMeeseeks, existence, rickBox) {
 
 
 
-function explodeMrMeeseeks(numMeseeksToBlowOut, existence) {
-    for(let i = 0; i < numMeseeksToBlowOut; i++) {
+function explodeMrMeeseeks(numMeeseeksToBlowOut, existence) {
+    for(let i = 0; i < numMeeseeksToBlowOut; i++) {
 
         existence.shift().fulfillRequest();
     }    

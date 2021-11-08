@@ -1,8 +1,8 @@
 {
   "name": "mr-meesex-box",
   "version": "1.0.0",
-  "description": "Proxy pattern Mr Meeseks Box Programme",
-  "main": "mrmeeseks.js",
+  "description": "Proxy pattern Mr Meeseeks Box Programme",
+  "main": "main.js",
   "scripts": {
     "test": "jest",
     "start": "node ./main.js"

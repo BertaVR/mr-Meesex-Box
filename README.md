@@ -8,4 +8,3 @@ The aim of this practise is to recreate a Rick an Morty episode in which a clone
 - Use of 'this'
 
 
-\* Unit testing to be implemented- I still need to learn how jest works :(

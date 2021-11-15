@@ -5,7 +5,7 @@
   "main": "src/box.js",
   "scripts": {
     "start": "node ../main.js",
-    "test": "JEST"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BertaVR/mr-Meesex-Box/issues"
   },
-  "homepage": "https://github.com/BertaVR/mr-Meesex-Box#readme"
+  "homepage": "https://github.com/BertaVR/mr-Meesex-Box#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
 }

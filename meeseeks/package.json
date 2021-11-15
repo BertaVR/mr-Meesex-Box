@@ -1,7 +1,7 @@
 {
   "name": "meeseeks",
   "version": "1.0.0",
-  "description": "this is the meeseks module",
+  "description": "this is the meesweks module",
   "main": "./src/meeseeks.js",
   "scripts": {
     "start": "node ../main.js",
@@ -14,7 +14,8 @@
   "keywords": [
     "proxy",
     "classes",
-    "meeseks"
+    "meeseeks",
+    "closure"
   ],
   "author": "Berta Vergés",
   "license": "ISC",
